@@ -27,7 +27,8 @@ namespace Curacao.Mvvm.Commands
             return _canExecute == null || _canExecute(parameter);
         }
 
-        public void RaisCanExecuteChanged()
+        [PublicAPI]
+        public void RaiseCanExecuteChanged()
         {
             if (CanExecuteChanged != null)
             {
