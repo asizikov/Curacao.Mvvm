@@ -36,6 +36,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\UnsafeBaseViewModel.cs" />
     <Compile Include="ViewModel\Factories\GenericViewModelFactory.cs" />
     <Compile Include="ViewModel\Factories\IGenericViewModelFactory.cs" />
     <Compile Include="ViewModel\Factories\ISpecificViewModelFactory.cs" />
