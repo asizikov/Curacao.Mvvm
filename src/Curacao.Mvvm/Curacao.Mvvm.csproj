@@ -41,15 +41,12 @@
     <Compile Include="ViewModel\Factories\ISpecificViewModelFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Curacao.Mvvm.Abstractions">
+      <HintPath>..\packages\Curacao.Mvvm.Abstractions.1.0.0\Curacao.Mvvm.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Annotations">
       <HintPath>..\packages\JetBrains.Annotations.Portable.8.0.5185.29681\lib\portable-win+net40+sl40+wp+Xbox40\JetBrains.Annotations.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Curacao.Mvvm.Abstractions\Curacao.Mvvm.Abstractions.csproj">
-      <Project>{89d0eefb-d98e-4cb7-85ed-ca55f98a8b41}</Project>
-      <Name>Curacao.Mvvm.Abstractions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
