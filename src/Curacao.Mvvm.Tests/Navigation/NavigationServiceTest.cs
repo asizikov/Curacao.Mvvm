@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using Curacao.Mvvm.Abstractions.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Curacao.Mvvm.Navigation;
-using Curacao.Mvvm.ViewModel;
 using Moq;
 using NUnit.Framework;
 
@@ -24,24 +24,36 @@ namespace Curacao.Mvvm.Tests.Navigation
 
         [Test]
         public void NavigateThrowsWhenNoMappingGiven()
-        {
-//            new[] {"TestView", "TestPage"}
-            var service = CreateService();
+        { 
+            var service = CreateService(new TestPlatformNavigationServiceImplementation());
             ViewMappingProvider.Setup(provider => provider.GetPossibleMappings(It.IsAny<string>()))
                 .Returns(Enumerable.Empty<string>);
             Assert.Throws<NavigationException>(service.NavigateTo<TestViewModel>);
         }
 
-        private NavigationService CreateService()
+        [Test]
+        public void NavigateEncodesContext()
         {
-            return new NavigationService(ViewMappingProvider.Object, Serializer.Object, NavigationUriProvider.Object);
+            var navigationServiceImplementation = new TestPlatformNavigationServiceImplementation();
+            var service = CreateService(navigationServiceImplementation);
+            ViewMappingProvider.Setup(provider => provider.GetPossibleMappings(It.IsAny<string>()))
+                .Returns(new[] { "TestView", "TestPage" });
+            NavigationUriProvider.Setup(provider => provider.Get(It.IsAny<IEnumerable<string>>()))
+                .Returns(new Uri("/View/MainPage.xaml", UriKind.Relative));
+            service.NavigateTo<TestViewModel, NavigationData>(new NavigationData
+            {
+                Elements = new List<string> { "one"},
+                Id = 123,
+                MyProperty = "property"
+            });
+            var uri = navigationServiceImplementation.Uri;
         }
-    }
 
-    public class TestViewModel : BaseViewModel
-    {
-        public TestViewModel(ISystemDispatcher dispatcher) : base(dispatcher)
+
+
+        private NavigationService CreateService(IPlatformNavigationService platformNavigationService)
         {
+            return new NavigationService(ViewMappingProvider.Object, NavigationUriProvider.Object, platformNavigationService);
         }
     }
 }

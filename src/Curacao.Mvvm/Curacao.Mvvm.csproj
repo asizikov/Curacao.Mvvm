@@ -54,9 +54,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Navigation\INavigationUriProvider.cs" />
+    <Compile Include="Navigation\IPlatformNavigationService.cs" />
     <Compile Include="Navigation\ISerializer.cs" />
     <Compile Include="Navigation\IViewMappingProvider.cs" />
+    <Compile Include="Navigation\NavigationContext.cs" />
+    <Compile Include="Navigation\NavigationEvent.cs" />
     <Compile Include="Navigation\NavigationException.cs" />
+    <Compile Include="Navigation\NavigationSerializer.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
@@ -71,6 +76,9 @@
     </Reference>
     <Reference Include="JetBrains.Annotations">
       <HintPath>..\packages\JetBrains.Annotations.Portable.8.0.5185.29681\lib\portable-win+net40+sl40+wp+Xbox40\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
