@@ -61,6 +61,7 @@
     <Compile Include="Navigation\NavigationContext.cs" />
     <Compile Include="Navigation\NavigationEvent.cs" />
     <Compile Include="Navigation\NavigationException.cs" />
+    <Compile Include="Navigation\NavigationQueryExtension.cs" />
     <Compile Include="Navigation\NavigationSerializer.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
