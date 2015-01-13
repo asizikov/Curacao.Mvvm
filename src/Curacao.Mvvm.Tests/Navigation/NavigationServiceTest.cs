@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Curacao.Mvvm.Navigation;
 using Curacao.Mvvm.Navigation.Mapping;
+using Curacao.Mvvm.Navigation.Serialization;
 using Moq;
 using NUnit.Framework;
 

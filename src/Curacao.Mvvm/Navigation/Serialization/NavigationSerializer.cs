@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace Curacao.Mvvm.Navigation
+namespace Curacao.Mvvm.Navigation.Serialization
 {
-    public class NavigationSerializer : ISerializer
+    internal class NavigationSerializer : ISerializer
     {
         public string Serialize<T>(T item)
         {

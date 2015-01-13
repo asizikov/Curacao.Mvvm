@@ -56,7 +56,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Navigation\INavigationUriProvider.cs" />
     <Compile Include="Navigation\IPlatformNavigationService.cs" />
-    <Compile Include="Navigation\ISerializer.cs" />
+    <Compile Include="Navigation\Serialization\ISerializer.cs" />
     <Compile Include="Navigation\Mapping\IViewMappingProvider.cs" />
     <Compile Include="Navigation\Mapping\IViewModelNameExtractor.cs" />
     <Compile Include="Navigation\Mapping\IViewNameBuilder.cs" />
@@ -65,7 +65,7 @@
     <Compile Include="Navigation\NavigationEvent.cs" />
     <Compile Include="Navigation\NavigationException.cs" />
     <Compile Include="Navigation\NavigationQueryExtension.cs" />
-    <Compile Include="Navigation\NavigationSerializer.cs" />
+    <Compile Include="Navigation\Serialization\NavigationSerializer.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Navigation\Mapping\ViewModelNameExtractor.cs" />
     <Compile Include="Navigation\Mapping\ViewMappingProvider.cs" />

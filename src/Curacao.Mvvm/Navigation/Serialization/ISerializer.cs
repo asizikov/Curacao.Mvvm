@@ -1,4 +1,4 @@
-﻿namespace Curacao.Mvvm.Navigation
+﻿namespace Curacao.Mvvm.Navigation.Serialization
 {
     public interface ISerializer
     {

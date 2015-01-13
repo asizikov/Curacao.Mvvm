@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Curacao.Mvvm.Navigation.Mapping;
+using Curacao.Mvvm.Navigation.Serialization;
 using Curacao.Mvvm.ViewModel;
 using JetBrains.Annotations;
 

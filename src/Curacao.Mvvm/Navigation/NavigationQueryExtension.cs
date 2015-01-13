@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Curacao.Mvvm.Navigation.Serialization;
 
 namespace Curacao.Mvvm.Navigation
 {
