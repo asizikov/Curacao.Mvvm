@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 
-namespace Curacao.Mvvm.Navigation
+namespace Curacao.Mvvm.Navigation.Mapping
 {
     public interface IViewMappingProvider
     {

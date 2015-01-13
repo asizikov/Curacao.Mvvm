@@ -57,6 +57,7 @@
     <Compile Include="Navigation\NavigationServiceTest.cs" />
     <Compile Include="Navigation\TestPlatformNavigationServiceImplementation.cs" />
     <Compile Include="Navigation\TestViewModel.cs" />
+    <Compile Include="Navigation\ViewMappingProviderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
