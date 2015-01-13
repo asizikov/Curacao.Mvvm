@@ -14,12 +14,14 @@ namespace Curacao.Mvvm.Navigation
         private IPlatformNavigationService PlatformNavigationService { get; set; }
         private string Key { get; set; }
 
+        [PublicAPI]
         public NavigationService([NotNull] IViewMappingProvider viewMappingProvider,
             [NotNull] INavigationUriProvider navigationUriProvider, IPlatformNavigationService platformNavigationService)
             : this(viewMappingProvider, new NavigationSerializer(), navigationUriProvider, platformNavigationService)
         {
         }
 
+        [PublicAPI]
         public NavigationService([NotNull] IViewMappingProvider viewMappingProvider, [NotNull] ISerializer serializer,
             [NotNull] INavigationUriProvider navigationUriProvider, IPlatformNavigationService platformNavigationService)
         {
@@ -33,6 +35,7 @@ namespace Curacao.Mvvm.Navigation
             Key = "NavigationContext";
         }
 
+        [PublicAPI]
         public void NavigateTo<TViewModel>() where TViewModel : BaseViewModel
         {
             var viewModelType = typeof (TViewModel);
@@ -53,7 +56,7 @@ namespace Curacao.Mvvm.Navigation
             NavigateInternal(navigationEvent);
         }
 
-
+        [PublicAPI]
         public void NavigateTo<TViewModel, TData>(TData data) where TViewModel : BaseViewModel
         {
             var viewModelType = typeof (TViewModel);
@@ -103,7 +106,8 @@ namespace Curacao.Mvvm.Navigation
 
         private void NavigateInternal(NavigationEvent navigationEvent)
         {
-            var uriString = string.Format("{0}?{1}={2}",navigationEvent.Destination.OriginalString,Key, navigationEvent.Context);
+            var uriString = string.Format("{0}?{1}={2}", navigationEvent.Destination.OriginalString, Key,
+                navigationEvent.Context);
             var path = new Uri(uriString, UriKind.Relative);
             PlatformNavigationService.Navigate(path);
         }
