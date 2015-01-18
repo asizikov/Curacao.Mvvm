@@ -26,7 +26,7 @@ namespace Curacao.Mvvm.Tests.Navigation
 
         [Test]
         public void NavigateThrowsWhenNoMappingGiven()
-        { 
+        {
             var service = CreateService(new TestPlatformNavigationServiceImplementation());
             ViewMappingProvider.Setup(provider => provider.GetPossibleMappings(It.IsAny<string>()))
                 .Returns(Enumerable.Empty<string>);
@@ -39,12 +39,12 @@ namespace Curacao.Mvvm.Tests.Navigation
             var navigationServiceImplementation = new TestPlatformNavigationServiceImplementation();
             var service = CreateService(navigationServiceImplementation);
             ViewMappingProvider.Setup(provider => provider.GetPossibleMappings(It.IsAny<string>()))
-                .Returns(new[] { "TestView", "TestPage" });
+                .Returns(new[] {"TestView", "TestPage"});
             NavigationUriProvider.Setup(provider => provider.Get(It.IsAny<IEnumerable<string>>()))
                 .Returns(new Uri("/View/MainPage.xaml", UriKind.Relative));
             service.NavigateTo<TestViewModel, NavigationData>(new NavigationData
             {
-                Elements = new List<string> { "one"},
+                Elements = new List<string> {"one"},
                 Id = 123,
                 MyProperty = "property"
             });
@@ -52,10 +52,14 @@ namespace Curacao.Mvvm.Tests.Navigation
         }
 
 
-
         private NavigationService CreateService(IPlatformNavigationService platformNavigationService)
         {
-            return new NavigationService(ViewMappingProvider.Object, NavigationUriProvider.Object, platformNavigationService);
+            var configuration = new NavigationServiceConfiguration
+            {
+                ViewMappingProvider = ViewMappingProvider.Object,
+                NavigationUriProvider = NavigationUriProvider.Object,
+            };
+            return new NavigationService(configuration, platformNavigationService);
         }
     }
 }

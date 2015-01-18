@@ -15,23 +15,15 @@ namespace Curacao.Mvvm.Navigation
         private IPlatformNavigationService PlatformNavigationService { get; set; }
         private string Key { get; set; }
 
-        [PublicAPI]
-        public NavigationService([NotNull] IViewMappingProvider viewMappingProvider,
-            [NotNull] INavigationUriProvider navigationUriProvider, IPlatformNavigationService platformNavigationService)
-            : this(viewMappingProvider, new NavigationSerializer(), navigationUriProvider, platformNavigationService)
+        public NavigationService([NotNull] NavigationServiceConfiguration configuration,
+            [NotNull] IPlatformNavigationService platformNavigationService)
         {
-        }
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (platformNavigationService == null) throw new ArgumentNullException("platformNavigationService");
 
-        [PublicAPI]
-        public NavigationService([NotNull] IViewMappingProvider viewMappingProvider, [NotNull] ISerializer serializer,
-            [NotNull] INavigationUriProvider navigationUriProvider, IPlatformNavigationService platformNavigationService)
-        {
-            if (viewMappingProvider == null) throw new ArgumentNullException("viewMappingProvider");
-            if (serializer == null) throw new ArgumentNullException("serializer");
-            if (navigationUriProvider == null) throw new ArgumentNullException("navigationUriProvider");
-            ViewMappingProvider = viewMappingProvider;
-            Serializer = serializer;
-            NavigationUriProvider = navigationUriProvider;
+            ViewMappingProvider = configuration.ViewMappingProvider;
+            Serializer = configuration.Serializer;
+            NavigationUriProvider = configuration.NavigationUriProvider;
             PlatformNavigationService = platformNavigationService;
             Key = "NavigationContext";
         }

@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\Data.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\Page1ViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
