@@ -33,7 +33,7 @@ namespace Curacao.Mvvm.Navigation
         {
             var viewModelType = typeof (TViewModel);
             var viewModelName = viewModelType.Name;
-            var possibleMappings = ViewMappingProvider.GetPossibleMappings(viewModelName).ToList();
+            var possibleMappings = ViewMappingProvider.GetPossibleMappings(viewModelType).ToList();
             if (!possibleMappings.Any())
             {
                 throw new NavigationException("Can't find suitable mapping");
@@ -54,7 +54,7 @@ namespace Curacao.Mvvm.Navigation
         {
             var viewModelType = typeof (TViewModel);
             var viewModelName = viewModelType.Name;
-            var possibleMappings = ViewMappingProvider.GetPossibleMappings(viewModelName).ToList();
+            var possibleMappings = ViewMappingProvider.GetPossibleMappings(viewModelType).ToList();
             if (!possibleMappings.Any())
             {
                 throw new NavigationException("Can't find suitable mapping");

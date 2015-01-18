@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Curacao.Mvvm.Navigation.Mapping
@@ -9,18 +10,18 @@ namespace Curacao.Mvvm.Navigation.Mapping
 
         public ViewModelNameExtractor()
         {
-            ViewModelSuffixes = new HashSet<string>(new[] { "ViewModel", "VM" });
+            ViewModelSuffixes = new HashSet<string>(new[] {"ViewModel", "VM"});
         }
 
-        public string Extract(string name)
+        public string Extract(Type viewModelType)
         {
-            var viewModelName = string.Empty;
-            foreach (var viewModelSuffix in ViewModelSuffixes.Where(name.EndsWith))
-            {
-                viewModelName = name.Substring(0, name.Length - viewModelSuffix.Length);
-                break;
-            }
-            return viewModelName;
+            if (viewModelType == null) throw new ArgumentNullException("viewModelType");
+
+            var name = viewModelType.Name;
+            return
+                ViewModelSuffixes.Where(name.EndsWith)
+                    .Select(viewModelSuffix => name.Substring(0, name.Length - viewModelSuffix.Length))
+                    .FirstOrDefault();
         }
     }
 }

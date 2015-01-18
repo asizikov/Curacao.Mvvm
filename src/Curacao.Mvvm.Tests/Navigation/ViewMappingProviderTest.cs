@@ -13,7 +13,8 @@ namespace Curacao.Mvvm.Tests.Navigation
         [TestCase("TestViewModel", "TestPage")]
         [TestCase("TestVM", "TestView")]
         [TestCase("TestVM", "TestPage")]
-        public void MyMethod(string viewModelName, string viewName)
+        [Ignore]
+        public void MyMethod(Type viewModelName, string viewName)
         {
             var viewMappingProvider = new ViewMappingProvider();
             var possibleMappings = viewMappingProvider.GetPossibleMappings(viewModelName);

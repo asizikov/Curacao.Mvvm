@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Navigation\Mapping\ViewModelNameExtractorTest.cs" />
     <Compile Include="Navigation\NavigationData.cs" />
     <Compile Include="Navigation\NavigationServiceTest.cs" />
     <Compile Include="Navigation\TestPlatformNavigationServiceImplementation.cs" />

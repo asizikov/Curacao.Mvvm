@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace Curacao.Mvvm.Navigation.Mapping
@@ -6,6 +7,6 @@ namespace Curacao.Mvvm.Navigation.Mapping
     public interface IViewMappingProvider
     {
         [NotNull]
-        IEnumerable<string> GetPossibleMappings([NotNull] string name);
+        IEnumerable<string> GetPossibleMappings([NotNull] Type viewModel);
     }
 }

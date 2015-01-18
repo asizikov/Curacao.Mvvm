@@ -25,9 +25,9 @@ namespace Curacao.Mvvm.Navigation.Mapping
             ViewNameBuilder = viewNameBuilder;
         }
 
-        public IEnumerable<string> GetPossibleMappings(string name)
+        public IEnumerable<string> GetPossibleMappings(Type viewModel)
         {
-            var viewModelName = ViewModelNameExtractor.Extract(name);
+            var viewModelName = ViewModelNameExtractor.Extract(viewModel);
             var possibleViewNames = ViewNameBuilder.Build(viewModelName);
             return possibleViewNames;
         }
