@@ -14,7 +14,7 @@ namespace Curacao.Mvvm.Navigation.Mapping
 
         public IEnumerable<string> Build(string viewModelName)
         {
-            return ViewSuffixes.Select(view => string.Concat(viewModelName, (string) view));
+            return ViewSuffixes.Select(view => string.Concat(viewModelName, view));
         }
     }
 }
