@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Controls;
+using Curacao.Mvvm.ViewModel;
 using JetBrains.Annotations;
 
 namespace Curacao.Mvvm.Navigation

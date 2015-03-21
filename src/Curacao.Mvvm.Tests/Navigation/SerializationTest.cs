@@ -23,11 +23,7 @@ namespace Curacao.Mvvm.Tests.Navigation
         public void MyMethod(string input)
         {
             var text = input;
-            var navigationContext = NavigationContext.Create("adsf", new List<string>
-            {
-                "adsf"
-            }, new MyClass {Text = text}
-                );
+            var navigationContext = NavigationContext.Create("to", new MyClass {Text = text});
 
             var serializedContext = Serializer.Serialize(navigationContext);
             var encoded = Base64Encode(serializedContext);

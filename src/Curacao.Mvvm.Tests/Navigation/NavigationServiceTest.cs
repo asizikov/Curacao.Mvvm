@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Curacao.Mvvm.Navigation;
-using Curacao.Mvvm.Navigation.Mapping;
-using Curacao.Mvvm.Navigation.Serialization;
 using Moq;
 using NUnit.Framework;
 
@@ -12,23 +9,12 @@ namespace Curacao.Mvvm.Tests.Navigation
     [TestFixture]
     public class NavigationServiceTest
     {
-        private Mock<IViewMappingProvider> ViewMappingProvider { get; set; }
         private Mock<INavigationUriProvider> NavigationUriProvider { get; set; }
 
         [SetUp]
         public void SetUp()
         {
-            ViewMappingProvider = new Mock<IViewMappingProvider>();
             NavigationUriProvider = new Mock<INavigationUriProvider>();
-        }
-
-        [Test]
-        public void NavigateThrowsWhenNoMappingGiven()
-        {
-            var service = CreateService();
-            ViewMappingProvider.Setup(provider => provider.GetPossibleMappings(It.IsAny<Type>()))
-                .Returns(Enumerable.Empty<string>);
-            Assert.Throws<NavigationException>(service.NavigateTo<TestViewModel>);
         }
 
         [Test]
@@ -36,9 +22,7 @@ namespace Curacao.Mvvm.Tests.Navigation
         {
             var navigationServiceImplementation = new TestPlatformNavigationServiceImplementation();
             var service = CreateService(navigationServiceImplementation);
-            ViewMappingProvider.Setup(provider => provider.GetPossibleMappings(It.IsAny<Type>()))
-                .Returns(new[] {"TestView", "TestPage"});
-            NavigationUriProvider.Setup(provider => provider.Get(It.IsAny<IEnumerable<string>>()))
+            NavigationUriProvider.Setup(provider => provider.Get<TestViewModel>())
                 .Returns(new Uri("/View/MainPage.xaml", UriKind.Relative));
             service.NavigateTo<TestViewModel, NavigationData>(new NavigationData
             {
@@ -59,7 +43,6 @@ namespace Curacao.Mvvm.Tests.Navigation
         {
             var configuration = new NavigationServiceConfiguration
             {
-                ViewMappingProvider = ViewMappingProvider.Object,
                 NavigationUriProvider = NavigationUriProvider.Object,
             };
             return new NavigationService(configuration, platformNavigationService);
@@ -69,6 +52,5 @@ namespace Curacao.Mvvm.Tests.Navigation
     public class MyClass
     {
         public string Text { get; set; }
-        
     }
 }

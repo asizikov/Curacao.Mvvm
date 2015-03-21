@@ -53,13 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigation\Mapping\ViewModelNameExtractorTest.cs" />
     <Compile Include="Navigation\NavigationData.cs" />
     <Compile Include="Navigation\NavigationServiceTest.cs" />
     <Compile Include="Navigation\SerializationTest.cs" />
     <Compile Include="Navigation\TestPlatformNavigationServiceImplementation.cs" />
     <Compile Include="Navigation\TestViewModel.cs" />
-    <Compile Include="Navigation\ViewMappingProviderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +69,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

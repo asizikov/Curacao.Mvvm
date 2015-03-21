@@ -9,12 +9,11 @@ using JetBrains.Annotations;
 
 namespace Curacao.Sample.App.ViewModels
 {
-    internal sealed class MainViewModel : BaseViewModel
+    internal sealed class MainViewModel : PageViewModel
     {
         private NavigationService NavigationService { get; set; }
 
-        public MainViewModel(ISystemDispatcher dispatcher, [NotNull] NavigationService navigationService)
-            : base(dispatcher)
+        public MainViewModel([NotNull] NavigationService navigationService)
         {
             if (navigationService == null) throw new ArgumentNullException("navigationService");
             NavigationService = navigationService;

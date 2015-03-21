@@ -1,21 +1,14 @@
-﻿using System;
-using System.ComponentModel;
-using Curacao.Mvvm.Abstractions.Services;
+﻿using System.ComponentModel;
 using JetBrains.Annotations;
 
 namespace Curacao.Mvvm.ViewModel
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        [PublicAPI, NotNull] protected readonly ISystemDispatcher Dispatcher;
         public event PropertyChangedEventHandler PropertyChanged;
         private bool _isLoading;
 
-        protected BaseViewModel([NotNull] ISystemDispatcher dispatcher)
-        {
-            if (dispatcher == null) throw new ArgumentNullException("dispatcher");
-            Dispatcher = dispatcher;
-        }
+
 
         [NotifyPropertyChangedInvocator, PublicAPI]
         protected void OnPropertyChanged(string propertyName)
@@ -23,7 +16,7 @@ namespace Curacao.Mvvm.ViewModel
             var handler = PropertyChanged;
             if (handler != null)
             {
-                Dispatcher.InvokeOnUIifNeeded(() => handler(this, new PropertyChangedEventArgs(propertyName)));
+                SmartDispatcher.BeginInvoke(() => handler(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
 
