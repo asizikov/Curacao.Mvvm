@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Curacao.Sample.App.Resources;
+using Ninject.Modules;
 
 namespace Curacao.Sample.App
 {
@@ -61,6 +62,7 @@ namespace Curacao.Sample.App
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            Bootstrapper.Initialize(RootFrame);
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -220,4 +222,25 @@ namespace Curacao.Sample.App
             }
         }
     }
+
+    internal static class Bootstrapper
+    {
+        public static void Initialize(PhoneApplicationFrame rootFrame)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public abstract class CuracaoNinjectModule : NinjectModule
+    {
+        public override void Load()
+        {
+            Kernel.Bind<PhoneApplicationFrame>().ToConstant(App.RootFrame);
+            PhoneLoad();
+        }
+
+        public abstract void PhoneLoad();
+    }
+
+
 }

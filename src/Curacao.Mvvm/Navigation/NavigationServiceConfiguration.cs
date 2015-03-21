@@ -1,5 +1,4 @@
-﻿using Curacao.Mvvm.Navigation.Mapping;
-using Curacao.Mvvm.Navigation.Serialization;
+﻿using Curacao.Mvvm.Navigation.Serialization;
 using JetBrains.Annotations;
 
 namespace Curacao.Mvvm.Navigation
@@ -10,11 +9,7 @@ namespace Curacao.Mvvm.Navigation
         {
             Serializer = new NavigationSerializer();
             NavigationUriProvider = new NavigationUriProvider();
-            ViewMappingProvider = new ViewMappingProvider();
         }
-
-        [PublicAPI]
-        public IViewMappingProvider ViewMappingProvider { get; set; }
 
         [PublicAPI]
         public ISerializer Serializer { get; set; }
@@ -22,4 +17,5 @@ namespace Curacao.Mvvm.Navigation
         [PublicAPI]
         public INavigationUriProvider NavigationUriProvider { get; set; }
     }
+
 }

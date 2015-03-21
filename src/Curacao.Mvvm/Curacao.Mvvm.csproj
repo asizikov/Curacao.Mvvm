@@ -54,23 +54,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Navigation\ContainsNavigationDestinationsAttribute.cs" />
+    <Compile Include="Navigation\DependsOnViewModelAttribute.cs" />
+    <Compile Include="Navigation\INavigationService.cs" />
     <Compile Include="Navigation\INavigationUriProvider.cs" />
     <Compile Include="Navigation\IPlatformNavigationService.cs" />
     <Compile Include="Navigation\NavigationServiceConfiguration.cs" />
     <Compile Include="Navigation\Serialization\ISerializer.cs" />
-    <Compile Include="Navigation\Mapping\IViewMappingProvider.cs" />
-    <Compile Include="Navigation\Mapping\IViewModelNameExtractor.cs" />
-    <Compile Include="Navigation\Mapping\IViewNameBuilder.cs" />
-    <Compile Include="Navigation\Mapping\ViewNameBuilder.cs" />
     <Compile Include="Navigation\NavigationContext.cs" />
     <Compile Include="Navigation\NavigationEvent.cs" />
     <Compile Include="Navigation\NavigationException.cs" />
     <Compile Include="Navigation\NavigationQueryExtension.cs" />
     <Compile Include="Navigation\Serialization\NavigationSerializer.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
-    <Compile Include="Navigation\Mapping\ViewModelNameExtractor.cs" />
-    <Compile Include="Navigation\Mapping\ViewMappingProvider.cs" />
     <Compile Include="Navigation\NavigationUriProvider.cs" />
+    <Compile Include="Navigation\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\UnsafeBaseViewModel.cs" />

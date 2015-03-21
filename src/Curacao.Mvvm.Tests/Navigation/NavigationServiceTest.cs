@@ -13,14 +13,12 @@ namespace Curacao.Mvvm.Tests.Navigation
     public class NavigationServiceTest
     {
         private Mock<IViewMappingProvider> ViewMappingProvider { get; set; }
-        private Mock<ISerializer> Serializer { get; set; }
         private Mock<INavigationUriProvider> NavigationUriProvider { get; set; }
 
         [SetUp]
         public void SetUp()
         {
             ViewMappingProvider = new Mock<IViewMappingProvider>();
-            Serializer = new Mock<ISerializer>();
             NavigationUriProvider = new Mock<INavigationUriProvider>();
         }
 
@@ -51,6 +49,7 @@ namespace Curacao.Mvvm.Tests.Navigation
             var uri = navigationServiceImplementation.Uri;
         }
 
+
         private NavigationService CreateService()
         {
             return CreateService(new TestPlatformNavigationServiceImplementation());
@@ -65,5 +64,11 @@ namespace Curacao.Mvvm.Tests.Navigation
             };
             return new NavigationService(configuration, platformNavigationService);
         }
+    }
+
+    public class MyClass
+    {
+        public string Text { get; set; }
+        
     }
 }
