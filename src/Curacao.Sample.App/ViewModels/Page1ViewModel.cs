@@ -1,12 +1,15 @@
-using Curacao.Mvvm.Abstractions.Services;
 using Curacao.Mvvm.ViewModel;
-using JetBrains.Annotations;
+using Curacao.Sample.App.Models;
 
 namespace Curacao.Sample.App.ViewModels
 {
-    internal sealed class Page1ViewModel : BaseViewModel
+    internal sealed class Page1ViewModel : PageViewModel<Data>
     {
-        public Page1ViewModel([NotNull] ISystemDispatcher dispatcher) : base(dispatcher)
+        public Page1ViewModel()
+        {
+        }
+
+        public override void Initialize(Data navigationParameter)
         {
         }
     }

@@ -1,29 +1,61 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
 using System.Reflection;
+using System.Threading;
+using System.Windows.Controls;
+using Curacao.Mvvm.ViewModel;
 
 namespace Curacao.Mvvm.Navigation
 {
     internal class NavigationUriProvider : INavigationUriProvider
     {
-        public Uri Get(IEnumerable<string> possibleDestinations)
+        private Dictionary<Type, Type> Dictionary { get; set; }
+
+        public NavigationUriProvider()
         {
+            ThreadPool.QueueUserWorkItem(o => Initialize());
+        }
+
+        private void Initialize()
+        {
+            var stopwatch = Stopwatch.StartNew();
+            Debug.WriteLine("NavigationUriProvider::Initializing");
             var assemblies = LoadAssemblies();
-
+            Debug.WriteLine("NavigationUriProvider:: assemblies loaded at {0} ms",
+                stopwatch.ElapsedMilliseconds.ToString(CultureInfo.InvariantCulture));
+            var pages =
+                assemblies.SelectMany(
+                    assembly =>
+                        assembly.GetTypes()
+                            .Where(
+                                t =>
+                                    t.IsPublic && t.IsClass && t.IsSubclassOf(typeof(Page)) &&
+                                    t.IsDefined(typeof(DependsOnViewModelAttribute))))
+                    .ToList();
+            Debug.WriteLine("NavigationUriProvider:: pages selected loaded at {0} ms",
+                stopwatch.ElapsedMilliseconds.ToString(CultureInfo.InvariantCulture));
+            Dictionary = pages.ToDictionary(
+                p => (p.GetCustomAttribute<DependsOnViewModelAttribute>().ViewModelType), p => p);
+            Debug.WriteLine("NavigationUriProvider::Initialed in {0} ms",
+                stopwatch.ElapsedMilliseconds.ToString(CultureInfo.InvariantCulture));
         }
 
-        private IEnumerable<Assembly> LoadAssemblies()
+        private static IEnumerable<Assembly> LoadAssemblies()
         {
-            throw new NotImplementedException();
+            return AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetCustomAttribute<ContainsNavigationDestinationsAttribute>() != null);
         }
 
 
-        private Uri GetUri(Type viewType,  UriKind uriKind)
+        public Uri Get<TViewModel>() where TViewModel : BaseViewModel
         {
-            var assembly = viewType.Assembly;
-            var name = assembly.FullName;
-            var uri = viewType.FullName.Replace(name, string.Empty).Replace(".", "/");
-            return new Uri(string.Format("/{0};component{1}.xaml", name, uri), uriKind);
+            if (!Dictionary.ContainsKey(typeof(TViewModel)))
+            {
+                throw new NavigationException("There is no mapping for " + typeof(TViewModel));
+            }
+            return Dictionary[typeof(TViewModel)].GetUri();
         }
     }
 }

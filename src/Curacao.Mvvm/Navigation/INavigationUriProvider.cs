@@ -1,10 +1,12 @@
 using System;
-using System.Collections.Generic;
+using Curacao.Mvvm.ViewModel;
+using JetBrains.Annotations;
 
 namespace Curacao.Mvvm.Navigation
 {
     public interface INavigationUriProvider
     {
-        Uri Get(IEnumerable<string> possibleDestinations);
+        [NotNull]
+        Uri Get<TViewModel>() where TViewModel : BaseViewModel;
     }
 }

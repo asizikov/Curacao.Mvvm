@@ -8,7 +8,7 @@ namespace Curacao.Sample.App.ViewModels
     {
         internal static MainViewModel GetMainViewModel()
         {
-            return new MainViewModel(new SystemDispatcher(),
+            return new MainViewModel(
                 NavigationService());
         }
 
@@ -24,6 +24,16 @@ namespace Curacao.Sample.App.ViewModels
         public void Navigate(Uri path)
         {
             App.RootFrame.Navigate(path);
+        }
+
+        public bool CanGoBack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveBackEntry()
+        {
+            throw new NotImplementedException();
         }
     }
 }

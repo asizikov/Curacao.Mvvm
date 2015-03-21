@@ -10,5 +10,15 @@ namespace Curacao.Mvvm.Tests.Navigation
         {
             Uri = path;
         }
+
+        public bool CanGoBack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveBackEntry()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
