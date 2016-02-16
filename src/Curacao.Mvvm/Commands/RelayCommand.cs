@@ -16,7 +16,7 @@ namespace Curacao.Mvvm.Commands
         public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
         {
             if (execute == null)
-                throw new ArgumentNullException("execute");
+                throw new ArgumentNullException(nameof(execute));
 
             _execute = execute;
             _canExecute = canExecute;
@@ -25,7 +25,7 @@ namespace Curacao.Mvvm.Commands
         public RelayCommand(Action execute, Predicate<object> canExecute = null)
         {
             if (execute == null)
-                throw new ArgumentNullException("execute");
+                throw new ArgumentNullException(nameof(execute));
 
             _executeVoid = execute;
             _canExecute = canExecute;
@@ -40,10 +40,7 @@ namespace Curacao.Mvvm.Commands
         [PublicAPI]
         public void RaiseCanExecuteChanged()
         {
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged(this, new EventArgs());
-            }
+            CanExecuteChanged?.Invoke(this, new EventArgs());
         }
 
         public event EventHandler CanExecuteChanged;
@@ -55,11 +52,7 @@ namespace Curacao.Mvvm.Commands
                 _execute(parameter);
                 return;
             }
-            if (_executeVoid != null)
-            {
-                _executeVoid();
-            }
-            
+            _executeVoid?.Invoke();
         }
     }
 }

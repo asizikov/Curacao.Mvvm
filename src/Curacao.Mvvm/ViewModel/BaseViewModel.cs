@@ -28,7 +28,7 @@ namespace Curacao.Mvvm.ViewModel
             {
                 if (value.Equals(_isLoading)) return;
                 _isLoading = value;
-                OnPropertyChanged("IsLoading");
+                OnPropertyChanged(nameof(IsLoading));
             }
         }
     }

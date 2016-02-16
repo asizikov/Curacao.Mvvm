@@ -9,7 +9,7 @@ namespace Curacao.Mvvm.Navigation
             var assembly = viewType.Assembly;
             var name = assembly.GetName().Name;
             var uri = viewType.FullName.Replace(name, string.Empty).Replace(".", "/");
-            return new Uri(string.Format("/{0};component{1}.xaml", name, uri), UriKind.Relative);
+            return new Uri($"/{name};component{uri}.xaml", UriKind.Relative);
         }
     }
 }

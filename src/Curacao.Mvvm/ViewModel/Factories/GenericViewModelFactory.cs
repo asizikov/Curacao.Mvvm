@@ -14,7 +14,7 @@ namespace Curacao.Mvvm.ViewModel.Factories
 
         public GenericViewModelFactory([NotNull] ISystemDispatcher dispatcher)
         {
-            if (dispatcher == null) throw new ArgumentNullException("dispatcher");
+            if (dispatcher == null) throw new ArgumentNullException(nameof(dispatcher));
             Dispatcher = dispatcher;
         }
 
