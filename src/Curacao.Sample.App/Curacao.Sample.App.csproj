@@ -126,6 +126,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
@@ -160,23 +161,27 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Curacao.Mvvm.Abstractions\Curacao.Mvvm.Abstractions.csproj">
+      <Project>{89d0eefb-d98e-4cb7-85ed-ca55f98a8b41}</Project>
+      <Name>Curacao.Mvvm.Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Curacao.Mvvm\Curacao.Mvvm.csproj">
       <Project>{f66e4f7d-df19-447e-baf2-31118687be7f}</Project>
       <Name>Curacao.Mvvm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Curacao.Phone.Toolkit\Curacao.Phone.Toolkit.csproj">
+      <Project>{1c13211e-c828-467d-a8c4-1aa7dcaba5c5}</Project>
+      <Name>Curacao.Phone.Toolkit</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Curacao.Mvvm.Abstractions">
-      <HintPath>..\packages\Curacao.Mvvm.Abstractions.1.0.1\lib\Curacao.Mvvm.Abstractions.dll</HintPath>
+    <Reference Include="JetBrains.Annotations.PCL328, Version=10.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.10.0.0\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\JetBrains.Annotations.PCL328.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Curacao.Phone.Toolkit">
-      <HintPath>..\packages\Curacao.Phone.Toolkit.1.0.1\lib\Curacao.Phone.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="JetBrains.Annotations">
-      <HintPath>..\packages\JetBrains.Annotations.Portable.8.0.5185.29681\lib\portable-win+net40+sl40+wp+Xbox40\JetBrains.Annotations.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\sl4-windowsphone71\Ninject.dll</HintPath>
