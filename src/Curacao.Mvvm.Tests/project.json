@@ -1,0 +1,13 @@
+﻿{
+  "dependencies": {
+    "Moq": "4.2.1510.2205",
+    "Newtonsoft.Json": "8.0.2",
+    "NUnit" :  "3.0.1"
+  },
+  "frameworks": {
+    "net452": {}
+  },
+  "runtimes": {
+    "win": {}
+  }
+}

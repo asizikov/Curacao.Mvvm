@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Curacao.Mvvm.Navigation;
 using Curacao.Mvvm.Navigation.Serialization;
 using NUnit.Framework;
