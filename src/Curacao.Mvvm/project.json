@@ -1,0 +1,12 @@
+﻿{
+  "dependencies": {
+    "JetBrains.Annotations": "10.0.0",
+    "Newtonsoft.Json": "8.0.2"
+  },
+  "frameworks": {
+    "WindowsPhone,Version=v8.1": {}
+  },
+  "runtimes": {
+    "win": {}
+  }
+}

@@ -19,7 +19,7 @@ namespace Curacao.Mvvm.Navigation
                 var navigationSerializer = new NavigationSerializer();
                 return navigationSerializer.Deserialize<NavigationContext>(json);
             }
-            var actualQuery = query.Select(s => string.Format(" [{0}:{1}]", s.Key, s.Value)).Aggregate((s, a) => s + a);
+            var actualQuery = query.Select(s => $" [{s.Key}:{s.Value}]").Aggregate((s, a) => s + a);
             throw new NavigationException("Can't restore context, actual query is:" + actualQuery);
         }
 
@@ -34,7 +34,7 @@ namespace Curacao.Mvvm.Navigation
                 var navigationSerializer = new NavigationSerializer();
                 return navigationSerializer.Deserialize<NavigationContext<TData>>(json);
             }
-            var actualQuery = query.Select(s => string.Format(" [{0}:{1}]", s.Key, s.Value)).Aggregate((s, a) => s + a);
+            var actualQuery = query.Select(s => $" [{s.Key}:{s.Value}]").Aggregate((s, a) => s + a);
             throw new NavigationException("Can't restore context, actual query is:" + actualQuery);
         }
 

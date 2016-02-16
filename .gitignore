@@ -89,4 +89,9 @@ Thumbs.db
 
 # Folder config file
 Desktop.ini
+.vs
+*.nuget.targets
+*.nuget.props
+
+*.lock.json
 

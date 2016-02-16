@@ -14,18 +14,18 @@ namespace Curacao.Mvvm.ViewModel.Factories
 
         public GenericViewModelFactory([NotNull] ISystemDispatcher dispatcher)
         {
-            if (dispatcher == null) throw new ArgumentNullException("dispatcher");
+            if (dispatcher == null) throw new ArgumentNullException(nameof(dispatcher));
             Dispatcher = dispatcher;
         }
 
         public virtual BaseViewModel Create()
         {
-            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), new object[] { Dispatcher });
+            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), Dispatcher);
         }
 
         public virtual TViewModel CreateSpecific()
         {
-            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), new object[] {Dispatcher});
+            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), Dispatcher);
         }
     }
 }

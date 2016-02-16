@@ -15,7 +15,7 @@ namespace Curacao.Mvvm.ViewModel
         {
             var handler = PropertyChanged;
             if (handler != null)
-            {
+            {     
                 SmartDispatcher.BeginInvoke(() => handler(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
@@ -28,7 +28,7 @@ namespace Curacao.Mvvm.ViewModel
             {
                 if (value.Equals(_isLoading)) return;
                 _isLoading = value;
-                OnPropertyChanged("IsLoading");
+                OnPropertyChanged(nameof(IsLoading));
             }
         }
     }

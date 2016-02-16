@@ -1,12 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{C5EEC539-D64C-486D-AFC1-73ED22F4AD89}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet.Config = NuGet.Config
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Curacao.Mvvm", "Curacao.Mvvm\Curacao.Mvvm.csproj", "{F66E4F7D-DF19-447E-BAF2-31118687BE7F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0446AB89-0B12-4CB6-BE8C-11862599C095}"
@@ -16,6 +11,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{57C31A25-4CE0-4F4C-A94C-8E8D91C84BD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Curacao.Sample.App", "Curacao.Sample.App\Curacao.Sample.App.csproj", "{837DEEFE-7754-492F-98C5-A4634339E5A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Curacao.Mvvm.Abstractions", "Curacao.Mvvm.Abstractions\Curacao.Mvvm.Abstractions.csproj", "{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Curacao.Phone.Toolkit", "Curacao.Phone.Toolkit\Curacao.Phone.Toolkit.csproj", "{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +60,30 @@ Global
 		{837DEEFE-7754-492F-98C5-A4634339E5A0}.Release|x86.ActiveCfg = Release|x86
 		{837DEEFE-7754-492F-98C5-A4634339E5A0}.Release|x86.Build.0 = Release|x86
 		{837DEEFE-7754-492F-98C5-A4634339E5A0}.Release|x86.Deploy.0 = Release|x86
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Debug|ARM.Build.0 = Debug|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Debug|x86.Build.0 = Debug|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Release|ARM.ActiveCfg = Release|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Release|ARM.Build.0 = Release|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Release|x86.ActiveCfg = Release|Any CPU
+		{89D0EEFB-D98E-4CB7-85ED-CA55F98A8B41}.Release|x86.Build.0 = Release|Any CPU
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Debug|ARM.Build.0 = Debug|ARM
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Debug|x86.ActiveCfg = Debug|x86
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Debug|x86.Build.0 = Debug|x86
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Release|ARM.ActiveCfg = Release|ARM
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Release|ARM.Build.0 = Release|ARM
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Release|x86.ActiveCfg = Release|x86
+		{1C13211E-C828-467D-A8C4-1AA7DCABA5C5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
