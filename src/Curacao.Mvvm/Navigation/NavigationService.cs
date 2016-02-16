@@ -10,10 +10,10 @@ namespace Curacao.Mvvm.Navigation
 {
     public class NavigationService : INavigationService
     {
-        private ISerializer Serializer { get; set; }
-        private INavigationUriProvider NavigationUriProvider { get; set; }
-        private IPlatformNavigationService PlatformNavigationService { get; set; }
-        private string Key { get; set; }
+        private ISerializer Serializer { get; }
+        private INavigationUriProvider NavigationUriProvider { get; }
+        private IPlatformNavigationService PlatformNavigationService { get; }
+        private string Key { get; }
 
         public NavigationService(IPlatformNavigationService platformNavigationService)
             : this(new NavigationServiceConfiguration(), platformNavigationService)
@@ -23,8 +23,8 @@ namespace Curacao.Mvvm.Navigation
         public NavigationService([NotNull] NavigationServiceConfiguration configuration,
             [NotNull] IPlatformNavigationService platformNavigationService)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
-            if (platformNavigationService == null) throw new ArgumentNullException("platformNavigationService");
+            if (configuration == null) throw new ArgumentNullException(nameof(configuration));
+            if (platformNavigationService == null) throw new ArgumentNullException(nameof(platformNavigationService));
 
             Serializer = configuration.Serializer;
             NavigationUriProvider = configuration.NavigationUriProvider;
@@ -70,8 +70,8 @@ namespace Curacao.Mvvm.Navigation
 
         private Uri BuildPath(NavigationEvent navigationEvent)
         {
-            var uriString = string.Format("{0}?{1}={2}", navigationEvent.Destination.OriginalString, Key,
-                HttpUtility.UrlEncode(navigationEvent.Context));
+            var uriString =
+                $"{navigationEvent.Destination.OriginalString}?{Key}={HttpUtility.UrlEncode(navigationEvent.Context)}";
             var path = new Uri(uriString, UriKind.Relative);
             return path;
         }
@@ -131,7 +131,7 @@ namespace Curacao.Mvvm.Navigation
         {
             SmartDispatcher.BeginInvoke(() =>
             {
-                Debug.WriteLine("NavigationService::Navigating to {0}", path);
+                Debug.WriteLine($"NavigationService::Navigating to {path}");
                 PlatformNavigationService.Navigate(path);
             });
         }
@@ -157,5 +157,4 @@ namespace Curacao.Mvvm.Navigation
             }
         }
     }
-
 }
