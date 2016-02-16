@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Navigation\NavigationData.cs" />
-    <Compile Include="Navigation\NavigationServiceTest.cs" />
     <Compile Include="Navigation\SerializationTest.cs" />
     <Compile Include="Navigation\TestPlatformNavigationServiceImplementation.cs" />
     <Compile Include="Navigation\TestViewModel.cs" />

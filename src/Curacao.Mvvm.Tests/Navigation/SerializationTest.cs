@@ -20,7 +20,7 @@ namespace Curacao.Mvvm.Tests.Navigation
         [TestCase("aaadfdfasdf")]
         [TestCase("привет")]
         [TestCase("прив ет")]
-        public void MyMethod(string input)
+        public void CanSerializeAndDeserialize(string input)
         {
             var text = input;
             var navigationContext = NavigationContext.Create("to", new MyClass {Text = text});
@@ -52,5 +52,10 @@ namespace Curacao.Mvvm.Tests.Navigation
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes, 0, base64EncodedBytes.Length);
         }
+    }
+
+    public class MyClass
+    {
+        public string Text { get; set; }
     }
 }

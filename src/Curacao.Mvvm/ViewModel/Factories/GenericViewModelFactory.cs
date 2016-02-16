@@ -20,12 +20,12 @@ namespace Curacao.Mvvm.ViewModel.Factories
 
         public virtual BaseViewModel Create()
         {
-            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), new object[] { Dispatcher });
+            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), Dispatcher);
         }
 
         public virtual TViewModel CreateSpecific()
         {
-            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), new object[] {Dispatcher});
+            return (TViewModel) Activator.CreateInstance(typeof (TViewModel), Dispatcher);
         }
     }
 }

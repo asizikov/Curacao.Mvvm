@@ -15,7 +15,7 @@ namespace Curacao.Mvvm.ViewModel
         {
             var handler = PropertyChanged;
             if (handler != null)
-            {
+            {     
                 SmartDispatcher.BeginInvoke(() => handler(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
